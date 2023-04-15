@@ -1,0 +1,331 @@
+<!-- <h1 class="bg-info text-center text-white p-4">Pipes</h1>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3 my-4">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="search by country name"
+        [(ngModel)]="SearchByValue"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>sr.no</th>
+            <th>name</th>
+            <th>country</th>
+            <th>role</th>
+            <th>age</th>
+            <th>matchesPlayed</th>
+            <th>totalRuns</th>
+            <th>totalWickets</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="
+              let item of playersArray | filterPipe : SearchByValue;
+              index as i
+            "
+          >
+            <td>{{ i + 1 }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.country }}</td>
+            <td>{{ item.role }}</td>
+            <td>{{ item.age }}</td>
+            <td>{{ item.matchesPlayed }}</td>
+            <td>{{ item.totalRuns }}</td>
+            <td>{{ item.totalWickets }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="container my-4">
+  <div class="row">
+    <div class="col-sm-12">
+      <p class="alert alert-info">
+        {{ title1 | lowercase }}
+      </p>
+      <p class="alert alert-info">
+        {{ title1 | uppercase }}
+      </p>
+      <p class="alert alert-info">
+        {{ title1 | titlecase }}
+      </p>
+      <p class="alert alert-info">
+        {{ " new string add " + title1 | uppercase }}
+      </p>
+      <p class="alert alert-info">
+        {{ d }} <strong> without pipe date </strong>
+      </p>
+      <p class="alert alert-info">
+        {{ d | date }}
+        <strong> date pipe </strong>
+      </p>
+      <p class="alert alert-info">
+        {{ d | date : "short" }}
+        <strong> date pipe with colan short </strong>
+      </p>
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            course title: {{ course.CourseName | uppercase }}
+          </div>
+          <div class="card-body">
+            <p>student count: {{ course.noOfStudent | number }}</p>
+            <p>student count: {{ course.rating | number : "4.0-5" }}</p>
+            <p>
+              student count: {{ course.price | currency : "4.0-5" }} student
+            </p>
+            <p>
+              student count: {{ course.price | currency : "4.0-5" }} student
+            </p>
+            <p>
+              count: {{ course.price | currency : "EUR" }} student count:
+              {{ course.price | currency : "AUD" }} student count:
+              {{ course.price | currency : "INR" }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let item of filesarray">
+      <div class="card">
+        <div class="card-header">
+          <h2>
+            {{ item.name }}
+          </h2>
+        </div>
+        <div class="card-body">
+          {{ item.size | fileSize }}
+        </div>
+        <div class="card-body">
+          {{ item.type }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-4">
+  <div class="col-sm-12">
+    <table class="table table-bordered">
+      <thead>
+        <tr class="text-center">
+          <th>sr.no</th>
+          <th>id</th>
+          <th>name</th>
+          <th>city</th>
+          <th>salary</th>
+          <th>dob</th>
+          <th>age</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of employee; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.city }}</td>
+          <td>{{ item.salary }}</td>
+          <td>{{ item.dob }}</td>
+          <td>{{ item.dob | employee }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <td>sr.no</td>
+          <td>name</td>
+          <td>gender</td>
+          <td>age</td>
+          <td>department</td>
+          <td>salary</td>
+          <td>yearsOfExperience</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of newEmployee; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ item.name | gender : item.gender : newEmployee }}</td>
+          <td>{{ item.gender }}</td>
+          <td>{{ item.age }}</td>
+          <td>{{ item.department }}</td>
+          <td>{{ item.salary }}</td>
+          <td>{{ item.yearsOfExperience }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+ -->
+ <h1 class="bg-info p-4">Tab by using ngIf</h1>
+
+<div class="container">
+  <div class="row">
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a
+          href=""
+          class="nav-link"
+          (click)="onframeWorkChange1('Angular')"
+          [ngClass]="{ active: framework1 === 'Angular' }"
+          >Angular
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          href=""
+          class="nav-link"
+          (click)="onframeWorkChange1('React')"
+          [ngClass]="{ active: framework1 === 'React' }"
+          >React
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          href=""
+          class="nav-link"
+          (click)="onframeWorkChange1('vue')"
+          [ngClass]="{ active: framework1 === 'vue' }"
+          >vue</a
+        >
+      </li>
+    </ul>
+    <div class="tabs-body">
+      <div class="card" *ngIf="framework1 === 'Angular'">
+        <div class="card-body">
+          <p>
+            <strong>Angular</strong> Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Assumenda, officia libero qui quod nobis alias
+            tempora veniam commodi culpa architecto quae eveniet incidunt
+            doloribus error modi perspiciatis esse natus cupiditate aspernatur
+            tempore deserunt explicabo molestias? Excepturi delectus, impedit
+            eligendi reiciendis similique saepe minus velit rem qui nostrum sint
+            nihil iusto?
+          </p>
+        </div>
+      </div>
+      <div class="card" *ngIf="framework1 === 'React'">
+        <div class="card-body">
+          <p>
+            <strong>React</strong> Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Assumenda, officia libero qui quod nobis alias
+            tempora veniam commodi culpa architecto quae eveniet incidunt
+            doloribus error modi perspiciatis esse natus cupiditate aspernatur
+            tempore deserunt explicabo molestias? Excepturi delectus, impedit
+            eligendi reiciendis similique saepe minus velit rem qui nostrum sint
+            nihil iusto?
+          </p>
+        </div>
+      </div>
+      <div class="card" *ngIf="framework1 === 'vue'">
+        <div class="card-body">
+          <p>
+            <strong>vue</strong> Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Assumenda, officia libero qui quod nobis alias
+            tempora veniam commodi culpa architecto quae eveniet incidunt
+            doloribus error modi perspiciatis esse natus cupiditate aspernatur
+            tempore deserunt explicabo molestias? Excepturi delectus, impedit
+            eligendi reiciendis similique saepe minus velit rem qui nostrum sint
+            nihil iusto?
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h1 class="bg-info p-4">Tab by using doller event and ngSwitch</h1>
+<div class="container">
+  <div class="row">
+    <ul class="nav nav-pills mb-4">
+      <li class="nav-item">
+        <a
+          href=""
+          class="nav-link"
+          (click)="onframeWorkChange($event)"
+          [ngClass]="{ active: framework === 'Angular' }"
+          >Angular
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          href=""
+          class="nav-link"
+          (click)="onframeWorkChange($event)"
+          [ngClass]="{ active: framework === 'React' }"
+          >React
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          href=""
+          class="nav-link"
+          (click)="onframeWorkChange($event)"
+          [ngClass]="{ active: framework === 'vue' }"
+          >vue</a
+        >
+      </li>
+    </ul>
+    <div class="tabs-body" [ngSwitch]="framework.toLowerCase().trim()">
+      <div class="card" *ngSwitchCase="'angular'">
+        <div class="card-body">
+          <p>
+            <strong>Angular</strong> Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Assumenda, officia libero qui quod nobis alias
+            tempora veniam commodi culpa architecto quae eveniet incidunt
+            doloribus error modi perspiciatis esse natus cupiditate aspernatur
+            tempore deserunt explicabo molestias? Excepturi delectus, impedit
+            eligendi reiciendis similique saepe minus velit rem qui nostrum sint
+            nihil iusto?
+          </p>
+        </div>
+      </div>
+      <div class="card" *ngSwitchCase="'react'">
+        <div class="card-body">
+          <p>
+            <strong>React</strong> Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Assumenda, officia libero qui quod nobis alias
+            tempora veniam commodi culpa architecto quae eveniet incidunt
+            doloribus error modi perspiciatis esse natus cupiditate aspernatur
+            tempore deserunt explicabo molestias? Excepturi delectus, impedit
+            eligendi reiciendis similique saepe minus velit rem qui nostrum sint
+            nihil iusto?
+          </p>
+        </div>
+      </div>
+      <div class="card" *ngSwitchCase="'vue'">
+        <div class="card-body">
+          <p>
+            <strong>vue</strong> Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Assumenda, officia libero qui quod nobis alias
+            tempora veniam commodi culpa architecto quae eveniet incidunt
+            doloribus error modi perspiciatis esse natus cupiditate aspernatur
+            tempore deserunt explicabo molestias? Excepturi delectus, impedit
+            eligendi reiciendis similique saepe minus velit rem qui nostrum sint
+            nihil iusto?
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
